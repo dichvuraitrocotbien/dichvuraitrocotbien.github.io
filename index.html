@@ -46,33 +46,40 @@
         }
         header p { margin: 5px 0 0 0; font-size: 16px; opacity: 0.9; }
         
-    /* CSS cho thanh cuộn ảnh (Slider) - 5 ẢNH TỐI ƯU HIỂN THỊ 100% */
+    /* CSS CHO THANH CUỘN ẢNH - HIỆU ỨNG MỜ DẦN (FADE) TỐI ƯU 5 ẢNH */
         .slider-container {
             width: 100%;
             height: 75vh;
             min-height: 400px;
             max-height: 700px;
-            overflow: hidden;
             position: relative;
             background-color: var(--primary-color);
-        }
-        .slider {
-            width: 500%; /* Chiều dài khung chứa 5 ảnh */
-            height: 100%;
-            display: flex;
-            animation: slideAnimation 25s infinite; /* Tổng thời gian chạy 5 ảnh là 25s */
-        }
-        .slide {
-            width: 20%; /* Mỗi ảnh chiếm 1 phần 5 (20%) */
-            height: 100%;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .slide img {
+        .fade-slide {
+            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Giữ trọn vẹn 100% ảnh gốc */
+            object-fit: contain; /* Giữ trọn vẹn 100% ảnh, không cắt xén */
+            opacity: 0;
+            animation: fadeAnimation 25s infinite;
+        }
+        /* Cài đặt thời gian xuất hiện lần lượt cho 5 ảnh */
+        .fade-slide:nth-child(1) { animation-delay: 0s; }
+        .fade-slide:nth-child(2) { animation-delay: 5s; }
+        .fade-slide:nth-child(3) { animation-delay: 10s; }
+        .fade-slide:nth-child(4) { animation-delay: 15s; }
+        .fade-slide:nth-child(5) { animation-delay: 20s; }
+
+        @keyframes fadeAnimation {
+            0% { opacity: 0; }
+            4% { opacity: 1; }
+            16% { opacity: 1; }
+            20% { opacity: 0; }
+            100% { opacity: 0; }
         }
         @keyframes slideAnimation {
             0%, 15% { transform: translateX(0); }
