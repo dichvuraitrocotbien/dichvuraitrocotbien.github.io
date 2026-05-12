@@ -5,92 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dịch vụ thuê tàu rải tro cốt biển Vũng Tàu - 0327.460.555</title>
     <meta name="description" content="Cung cấp dịch vụ thuê tàu rải tro cốt khu vực biển Vũng Tàu. Tàu an toàn, không gian trang trọng. Liên hệ Mr. Thế: 0327.460.555.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #2c3e50; /* Màu xanh đen trang trọng */
-            --accent-color: #3498db;  /* Màu xanh nước biển */
-            --bg-color: #f8f9fa;
+            --primary-color: #1a365d; /* Xanh Navy thẫm - Trang nghiêm */
+            --accent-color: #c5a880;  /* Vàng đồng - Cao cấp */
+            --bg-color: #fcfbf9;
+            --heading-font: 'Lora', serif;
+            --body-font: 'Mulish', sans-serif;
         }
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            font-family: var(--body-font);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
             color: #333;
             background-color: var(--bg-color);
         }
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 40px 20px;
+            padding: 25px 20px;
             text-align: center;
+            border-bottom: 4px solid var(--accent-color);
         }
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 26px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
+        header p { margin: 5px 0 0 0; font-size: 16px; opacity: 0.9; }
+        
+        /* CSS cho thanh cuộn ảnh (Slider) */
+        .slider-container {
+            width: 100%;
+            height: 50vh; /* Cao bằng một nửa màn hình */
+            min-height: 300px;
+            max-height: 500px;
+            overflow: hidden;
+            position: relative;
         }
+        .slider {
+            width: 300%; /* Vì có 3 ảnh nên chiều rộng là 300% */
+            height: 100%;
+            display: flex;
+            animation: slideAnimation 15s infinite; /* Tự động chạy trong 15s */
+        }
+        .slide {
+            width: 33.333%;
+            height: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(0); }
+            33% { transform: translateX(-33.333%); }
+            58% { transform: translateX(-33.333%); }
+            66% { transform: translateX(-66.666%); }
+            91% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
+        }
+
+        .container { max-width: 1000px; margin: auto; padding: 30px 20px; }
+        
         .hero {
-            background-color: #eef2f3;
+            background-color: white;
             padding: 40px 20px;
             border-radius: 8px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: -50px; /* Đẩy khối này lùi lên đè vào ảnh một chút */
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 3px solid var(--accent-color);
         }
+        .hero h2 { color: var(--primary-color); font-size: 28px; margin-top: 0; }
+        
         .contact-btn {
             display: inline-block;
-            background-color: #27ae60;
+            background-color: #b8860b; /* Màu vàng tối */
             color: white;
-            padding: 15px 35px;
+            padding: 15px 40px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 700;
             font-size: 20px;
             margin-top: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+            transition: all 0.3s ease;
         }
-        .contact-btn:hover {
-            background-color: #219653;
-        }
+        .contact-btn:hover { background-color: #996515; transform: translateY(-2px); }
+        
         .section-title {
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            margin: 40px 0 20px;
+            text-align: center;
+            margin: 50px 0 30px;
             color: var(--primary-color);
+            font-size: 28px;
         }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
         .card {
             background: white;
-            border: 1px solid #ddd;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
+        .card:hover { transform: translateY(-5px); }
         .card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             border-radius: 5px;
-            background-color: #ccc; /* Nền xám chờ tải ảnh */
         }
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
+        .card h3 { color: var(--primary-color); margin-top: 15px; }
+        
         footer {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 5px solid var(--accent-color);
         }
         .zalo-float {
             position: fixed;
@@ -98,27 +160,35 @@
             right: 20px;
             background-color: #0068ff;
             color: white;
-            padding: 15px 20px;
+            padding: 15px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Cung cấp dịch vụ thuê tàu rải tro cốt khu vực biển Vũng Tàu</h1>
+        <h1>Dịch vụ thuê tàu rải tro cốt biển Vũng Tàu</h1>
         <p>Trang trọng - Chu đáo - Tận tâm trong từng chuyến đi</p>
     </header>
 
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="banner1.jpg" alt="Tàu rải tro cốt 1"></div>
+            <div class="slide"><img src="banner2.jpg" alt="Tàu rải tro cốt 2"></div>
+            <div class="slide"><img src="banner3.jpg" alt="Cảnh biển Vũng Tàu"></div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="hero">
-            <h2>Hỗ trợ gia đình thực hiện nghi thức tại biển</h2>
-            <p>Chúng tôi cung cấp đội tàu an toàn, không gian riêng tư và sạch sẽ tại khu vực biển Vũng Tàu. Hỗ trợ gia đình đưa tiễn người thân về với đại dương một cách trọn vẹn và an lòng nhất.</p>
-            <p><strong>Hotline tư vấn 24/7:</strong></p>
-            <a href="tel:0327460555" class="contact-btn">0327.460.555 (Mr. Thế)</a>
+            <h2>Hỗ trợ gia đình thực hiện nghi thức trọn vẹn</h2>
+            <p>Chúng tôi cung cấp đội tàu an toàn, không gian riêng tư và sạch sẽ tại khu vực biển Vũng Tàu. Hỗ trợ gia đình đưa tiễn người thân về với đại dương một cách an lòng và thanh thản nhất.</p>
+            <a href="tel:0327460555" class="contact-btn">Gọi ngay: 0327.460.555 (Mr. Thế)</a>
         </div>
 
         <h2 class="section-title">Hình ảnh thực tế dịch vụ</h2>
@@ -126,32 +196,32 @@
             <div class="card">
                 <img src="anh-tau.jpg" alt="Hình ảnh tàu rải tro cốt Vũng Tàu">
                 <h3>Đội tàu an toàn, hiện đại</h3>
-                <p>Tàu được trang bị đầy đủ áo phao, chỗ ngồi rộng rãi, che nắng mưa, đảm bảo an toàn tuyệt đối cho mọi thành viên trong gia đình.</p>
+                <p>Tàu được trang bị đầy đủ áo phao, chỗ ngồi rộng rãi, có mái che nắng mưa, đảm bảo an toàn tuyệt đối và sự thoải mái cho mọi thành viên trong gia đình.</p>
             </div>
             <div class="card">
                 <img src="anh-bien.jpg" alt="Vị trí rải tro cốt ngoài biển">
                 <h3>Vị trí trang nghiêm</h3>
-                <p>Hỗ trợ di chuyển ra các khu vực biển yên tĩnh, nước trong xanh, phù hợp với các nghi thức tâm linh.</p>
+                <p>Hỗ trợ di chuyển ra các khu vực biển yên tĩnh, nước trong xanh, tách biệt với khu du lịch, vô cùng phù hợp để tiến hành các nghi thức tâm linh.</p>
             </div>
         </div>
 
-        <h2 class="section-title">Thông tin & Bài viết hữu ích</h2>
+        <h2 class="section-title">Thông tin cần biết</h2>
         <div class="grid">
             <div class="card">
-                <h3>Cần chuẩn bị gì khi rải tro cốt tại biển?</h3>
-                <p>Gia đình nên chuẩn bị hoa tươi (loại cánh dễ phân hủy), đồ lễ cơ bản, và lựa chọn ngày giờ thời tiết thuận lợi. Chúng tôi sẽ hỗ trợ tư vấn chi tiết các bước...</p>
+                <h3>Cần chuẩn bị gì khi rải tro cốt?</h3>
+                <p>Gia đình nên chuẩn bị hoa tươi (loại cánh hoa dễ phân hủy), đồ lễ cơ bản, và xem trước ngày giờ thời tiết thuận lợi. Chúng tôi sẵn sàng tư vấn chi tiết các bước chuẩn bị.</p>
             </div>
             <div class="card">
                 <h3>Lịch trình & Giá thuê tàu</h3>
-                <p>Mỗi chuyến đi thường kéo dài khoảng 1-2 tiếng tùy vào vị trí rải tro. Giá thuê tàu trọn gói, minh bạch, không phát sinh chi phí. Vui lòng liên hệ trực tiếp để có báo giá tốt nhất.</p>
+                <p>Mỗi chuyến đi thường kéo dài khoảng 1-2 tiếng tùy vào vị trí rải tro. Giá thuê tàu được báo trọn gói, minh bạch, tuyệt đối không phát sinh chi phí. Vui lòng liên hệ để có báo giá tốt nhất.</p>
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Dịch vụ Thuê Tàu Vũng Tàu. Phục vụ bằng sự tận tâm.</p>
-        <p><strong>Người liên hệ:</strong> Mr. Thế - <strong>Điện thoại:</strong> 0327.460.555</p>
-        <p><strong>Khu vực:</strong> Biển Vũng Tàu (Bãi Trước, Bãi Dâu, Bãi Sau...)</p>
+        <p><strong>Hotline tư vấn 24/7:</strong> 0327.460.555 (Mr. Thế)</p>
+        <p><strong>Khu vực neo đậu:</strong> Biển Vũng Tàu (Bãi Trước, Bãi Dâu...)</p>
     </footer>
 
     <a href="https://zalo.me/0327460555" class="zalo-float">Chat Zalo Ngay</a>
