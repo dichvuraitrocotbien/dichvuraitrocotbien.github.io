@@ -46,29 +46,50 @@
         }
         header p { margin: 5px 0 0 0; font-size: 16px; opacity: 0.9; }
         
-        /* CSS cho thanh cuộn ảnh (Slider) */
+    /* CSS cho thanh cuộn ảnh (Slider) - 5 ẢNH TỐI ƯU HIỂN THỊ 100% */
         .slider-container {
             width: 100%;
-            height: 50vh; /* Cao bằng một nửa màn hình */
-            min-height: 300px;
-            max-height: 500px;
+            height: 75vh;
+            min-height: 400px;
+            max-height: 700px;
             overflow: hidden;
             position: relative;
+            background-color: var(--primary-color);
         }
         .slider {
-            width: 300%; /* Vì có 3 ảnh nên chiều rộng là 300% */
+            width: 500%; /* Chiều dài khung chứa 5 ảnh */
             height: 100%;
             display: flex;
-            animation: slideAnimation 15s infinite; /* Tự động chạy trong 15s */
+            animation: slideAnimation 25s infinite; /* Tổng thời gian chạy 5 ảnh là 25s */
         }
         .slide {
-            width: 33.333%;
+            width: 20%; /* Mỗi ảnh chiếm 1 phần 5 (20%) */
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Giữ trọn vẹn 100% ảnh gốc */
+        }
+        @keyframes slideAnimation {
+            0%, 15% { transform: translateX(0); }
+            20%, 35% { transform: translateX(-20%); }
+            40%, 55% { transform: translateX(-40%); }
+            60%, 75% { transform: translateX(-60%); }
+            80%, 95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(0); }
+            33% { transform: translateX(-33.333%); }
+            58% { transform: translateX(-33.333%); }
+            66% { transform: translateX(-66.666%); }
+            91% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
         }
         @keyframes slideAnimation {
             0% { transform: translateX(0); }
